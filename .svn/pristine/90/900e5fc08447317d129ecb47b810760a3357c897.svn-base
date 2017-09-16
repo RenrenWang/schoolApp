@@ -1,13 +1,12 @@
 <template>
 
         <header :class="['navbar',fixed?'fixed':'']" >
-       
+         
             <div class="left" v-if="leftIcon">
                  <a href="javascright:;" class="navbar-item" @click="leftActive">
                      <span :class="['iconfont',leftIcon]"></span>
                  </a>
             </div>
-            <input type="text"  v-show="isShowSelect?isShowSelect:false" style="height:30px;border:1px  solid #bbb;outline:none"/>
             <h1 class="center title" v-if="title">{{title}}</h1>
             <h1 class="center title" v-if="logo"><img :src="logo" class="logo"/></h1>
             <div class="right"  v-if="rightIcon">
@@ -28,8 +27,7 @@
 
 export default {
   name:'navbar',
-  props:["title","fixed","logo","leftIcon","rightIcon","rightIconTwo","isShowSelect"],
-
+  props:["title","fixed","logo","leftIcon","rightIcon","rightIconTwo"],
   methods:{
      
     leftActive(){

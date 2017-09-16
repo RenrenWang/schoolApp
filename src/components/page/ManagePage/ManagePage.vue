@@ -1,6 +1,6 @@
 <template>
   <div class="ManagePage">
-       <NavBar leftIcon="icon-fanhui" rightIcon="icon-sousuo-sousuo"   fixed="true" title="楼幢管理"     @leftActive="back()"  />
+       <NavBar leftIcon="icon-fanhui" rightIcon="icon-sousuo-sousuo"  :isShowSelect="isSelect"   fixed="true" title="楼幢管理"   @rightActive="showSelect()"   @leftActive="back()"  />
        <main class="main">
      
             <div class="filterKind">         
@@ -56,7 +56,8 @@ export default {
        selectSchool:0,
        selectUse:0,
        selectType:0,
-       urlStr:""
+       urlStr:"",
+       isSelect:false
     }
   },
   components:{
@@ -69,6 +70,9 @@ export default {
 
 
   methods:{
+    showSelect(){
+      this.isSelect=!this.isSelect;
+     },
     changeNull(name,str){
        console.log(name+"----->"+str);
        return (str&&str!=0&&str!="")?("&"+name+"="+str):"";

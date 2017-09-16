@@ -17,6 +17,7 @@ export default {
       items:[
         {"name":"主页","url":'/home',"icon":'icon-zhuye'},
         {"name":"发现","url":'/find',"icon":'icon-faxian'},
+        {"name":"地图","url":'/map',"icon":'icon-map_02'},
         {"name":"通讯录","url":'/addressBook',"icon":'icon-tongxunlu'},
         {"name":"我的","url":'/my',"icon":'icon-wode'}
       ]

@@ -90,7 +90,7 @@ export default {
      username:null
     }
   },
-
+  
   mounted(){
      let   user=this.$root.isLogin();
     //  alert(user.loginName);
@@ -99,6 +99,7 @@ export default {
       this.username=user.loginName
     }
   },
+  
   components:{
       NavBar
   }

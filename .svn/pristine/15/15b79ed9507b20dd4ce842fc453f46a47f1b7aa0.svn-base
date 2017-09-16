@@ -199,7 +199,6 @@ export default {
 <style scoped lang="scss">
 @import "../../../assets/style/base.scss";
 #list-view{
-   overflow:hidden;
   overflow-y:scroll;
   position:fixed;
   
@@ -208,7 +207,6 @@ export default {
 
   background:$mianBgColor
 }
-
 .top{
     top:$topBarH*2;
 }

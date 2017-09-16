@@ -33,13 +33,17 @@ export default {
     overflow:hidden;
     .grid-item{
         width:25%;
-      
+        display:flex; 
         flex-basis: 25%;
-        padding:rem(15px);
+        height:rem(180px);
         box-sizing: border-box;
         text-align:center;
         position:relative;
-         background:#fff;
+        background:#fff;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
       &:after{
             @extend %borderBottomLine;
       }
