@@ -1,6 +1,7 @@
 <template>
   <div id="home">
-      <NavBar leftIcon="icon-caidan" @leftActive="toScan()" fixed="true" logo="./static/images/home_title.png" />
+      <NavBar leftIcon="icon-caidan" @leftActive="toScan()" fixed="true" title="违约基金" />
+     <!-- logo="./static/images/home_title.png"-->
       <main class="main">
            <Carousel  paginationActiveColor="#fff"  :paginationPadding=3  :paginationSize=6  paginationColor="#dbdbdb" :perPage=1>
         <slide>
@@ -60,7 +61,7 @@ export default {
     }else{
      str="";
     }
-  this.$http.get(BASEURL+'/baseDataAction.action?appMenu=&dataType=MAIN'+str)
+  this.$http.get(BASEURL+'/menuDataAction.action?appMenu=&dataType=MAIN&usrCd='+str)
       .then(data=>{
      // alert(JSON.stringify(data.data));
         this.list=data.data.data

@@ -1,14 +1,14 @@
 <template>
   <div class="noticeD">
-         <NavBar leftIcon="icon-fanhui"  rightIcon="icon-ttpodicon" fixed="true" title="通知详情"   @leftActive="back()"/>
+         <NavBar leftIcon="icon-fanhui"  rightIcon="icon-ttpodicon" fixed="true" title="新闻详情"   @leftActive="back()"/>
          <main class="main">
                  <div class="top-noticeD">
                          <h3>{{details.infoTitle}}</h3>
                           <div class="topN-info"> 
                                 <p><span class=" iconfont  icon-shijian"></span><span>{{details.createDate}}</span></p>
-                                <p><span class=" iconfont icon-chakan"></span><span>{{details.attachCount}}</span></p>
+                                <p><span class=" iconfont icon-chakan"></span><span>1000</span></p>
                            </div>  
-                          
+                         
                  </div>
                   <div class="d-title">
 					   	   <span class="line"></span>  

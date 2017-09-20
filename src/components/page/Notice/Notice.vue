@@ -4,10 +4,10 @@
      <main class="main">
          <ul class="tab-bar">
             <li @click="tabSelect(Tab_1)">
-                <a href="javascript:;":class="Tab_1==isTab?'active':''">当年</a>
+                <a href="javascript:;":class="Tab_1==isTab?'active':''">未查看</a>
              </li>
             <li  @click="tabSelect(Tab_2)">
-               <a href="javascript:;" :class="Tab_2==isTab?'active':''">往年</a>
+               <a href="javascript:;" :class="Tab_2==isTab?'active':''">已查看</a>
             </li>
             <li  @click="tabSelect(Tab_3)">
                <a href="javascript:;" :class="Tab_3==isTab?'active':''">全部</a>
@@ -67,9 +67,9 @@ export default {
      getAllData(){   
 
         this.isLoading=true
-        let _old=this.$http.get(BASEURL+'/newsAction.action?affType=T&yearClass=R&pageno=1');
-        let _new=this.$http.get(BASEURL+'/newsAction.action?affType=T&yearClass=H&pageno=1');
-        let _all=this.$http.get(BASEURL+'/newsAction.action?affType=T&yearClass=A&pageno=1');
+        let _old=this.$http.get(BASEURL+'/newsAction.action?newsType=TZ&lookType=N&pageno=1');
+        let _new=this.$http.get(BASEURL+'/newsAction.action?newsType=TZ&lookType=R&pageno=1');
+        let _all=this.$http.get(BASEURL+'/newsAction.action?newsType=TZ&lookType=A&pageno=1');
         this.$http.all([_old,_new,_all])
         .then(this.$http.spread((data1, data2,data3)=> {
               this.listviewdata_1=  this.listviewdata_1.concat(data1.data.data);

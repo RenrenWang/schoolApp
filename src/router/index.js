@@ -39,7 +39,13 @@ import IMagementQs from '../components/page/IncidentManagement/IncidentManagemen
 import IMagementHandle from '../components/page/IncidentManagement/IncidentManagementHandle.vue'
 import IMagementHandleD from '../components/page/IncidentManagement/IncidentManagementHandleD.vue'
 
-import AccountInfo from '../components/page/AccountInfo/AccountInfo.vue'
+import MyHouse from '../components/page/MyHouse/MyHouse.vue'
+
+
+import News from '../components/page/News/News.vue'
+import NewsD from '../components/page/News/NewsD.vue'
+
+import AccountInformation from '../components/page/AccountInformation/AccountInformation.vue'
 
 Vue.use(Router)
 
@@ -231,11 +237,24 @@ export default new Router({
       name: 'imagementHandleD',
       component: IMagementHandleD
     },{
-      path:'/accountInfo',
-      name: 'accountInfo',
-      component: AccountInfo
+      path:'/myHouse',
+      name: 'myHouse',
+      component: MyHouse
     },
-    
+   {
+      path:'/news',
+      name: 'news',
+      component: News
+    },
+    {
+      path:'/newsD',
+      name: 'newsD',
+      component: NewsD
+    },{
+      path:'/accountInformation',
+      name: 'accountInformation',
+      component: AccountInformation
+    },
    
   ]
 })

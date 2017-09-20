@@ -46,6 +46,7 @@ Object.keys(proxyTable).forEach(function (context) {
     options = { target: options }
   }
   app.use('/gisapp/',proxyMiddleware(options.filter || context, options))
+   app.use('/appsrv/',proxyMiddleware(options.filter || context, options))
   app.use('/zhxz/',proxyMiddleware(options.filter || context, options))
 })
 
@@ -63,7 +64,7 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-var uri = 'http://192.168.0.9:' + port
+var uri = 'http://192.168.2.124:' + port
 //var uri = 'http://192.168.2.177:' + port
 var _resolve
 var readyPromise = new Promise(resolve => {

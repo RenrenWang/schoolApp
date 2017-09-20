@@ -51,7 +51,7 @@ export default {
     }else{
      str="";
     }
-  this.$http.get(BASEURL+'/baseDataAction.action?appMenu=&dataType=MAINLIST'+str)
+  this.$http.get(BASEURL+'/menuDataAction.action?appMenu=&dataType=MAINLIST&usrCd='+str)
       .then(data=>{
         console.log(JSON.stringify(data.data));
         this.list=data.data.data

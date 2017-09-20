@@ -4,13 +4,13 @@
      <main class="main">
      <ul class="tab-bar">
             <li @click="tabSelect(Tab_1)">
-                <a href="javascript:;":class="Tab_1==isTab?'active':''">本校</a>
+                <a href="javascript:;":class="Tab_1==isTab?'active':''">部委</a>
              </li>
             <li  @click="tabSelect(Tab_2)">
                <a href="javascript:;" :class="Tab_2==isTab?'active':''">本省</a>
             </li>
              <li  @click="tabSelect(Tab_3)">
-               <a href="javascript:;" :class="Tab_3==isTab?'active':''">行业</a>
+               <a href="javascript:;" :class="Tab_3==isTab?'active':''">其他省</a>
             </li>
      </ul>
         
