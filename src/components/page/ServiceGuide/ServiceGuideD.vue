@@ -1,0 +1,110 @@
+<template>
+  <div class="noticeD">
+         <NavBar leftIcon="icon-fanhui"  rightIcon="icon-ttpodicon" fixed="true" title="服务指南详情"   @leftActive="back()"/>
+         <main class="main">
+                 <div class="top-noticeD">
+                         <h3>{{details.infoTitle}}</h3>
+                          <div class="topN-info"> 
+                                <p><span class=" iconfont  icon-shijian"></span><span>{{details.createDate}}</span></p>
+                                <p><span class=" iconfont icon-chakan"></span><span>1000</span></p>
+                           </div>  
+                         
+                 </div>
+                  <div class="d-title">
+					   	   <span class="line"></span>  
+					   	      <h5>详情内容</h5>
+					   	   <span class="line"></span>
+				  </div>
+                   <p class="notice-text">{{details.infoDescription}}</p>
+         </main>
+  </div>
+</template>
+
+<script>
+import NavBar from '../../common/NavBar/NavBar.vue'
+
+export default {
+  name: 'noticeD',
+  data () {
+    return {
+       details:[]
+    }
+  },
+
+  mounted(){
+      this.$http.get(BASEURL+'/newsAction.action?newsType=DT&infoId='+this.$route.params.id)
+          .then((data)=>{
+              data=data.data;
+            this.details=data.data[0];
+             console.log(JSON.stringify( this.details));
+              
+          })
+    },
+  methods:{
+       back(){
+
+      this.$router.go(-1);
+     
+   }
+  },
+  components:{
+      NavBar,
+     
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+@import "../../../assets/style/base.scss";
+ .top-noticeD{
+     display:flex;
+       flex-direction:column;
+       padding:rem(20px) rem(20px);
+       >h3{
+           font-size:18px;
+           
+       }
+       p{
+         margin-top:rem(10px);
+       }
+       .topN-info,.from{
+         font-size:14px;
+        color:$hColor;   
+         margin-top:rem(30px);      
+       }
+       .topN-info{
+          
+           display:flex;
+           flex-direction:row;
+           justify-content: space-between;
+        
+       }
+   
+ }
+     .d-title{
+     	display: flex;
+     	display: -webkit-flex;
+     	height: rem(60px);
+     	align-items: center;
+     	 -webkit-align-items: center;
+     }
+    .d-title .line{
+       border-bottom: 1px  dashed  #8f8f94;
+     	height: 1px;
+     	flex: 1;
+     	-webkit-flex: 1;
+     	
+     }
+    .d-title h5{
+    	color: #8f8f94;
+    	margin: 0 10px;
+    	font-size: 16px;
+    	
+      }
+      .notice-text{
+        padding:rem(10px) rem(20px);
+        font-size:16px;
+        line-height:25px;
+      }
+</style>

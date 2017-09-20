@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-      <NavBar leftIcon="icon-caidan" @leftActive="toScan()" fixed="true" title="违约基金" />
+      <NavBar leftIcon="icon-caidan" @leftActive="toScan()" fixed="true" logo="./static/images/home_title.png" />
      <!-- logo="./static/images/home_title.png"-->
       <main class="main">
            <Carousel  paginationActiveColor="#fff"  :paginationPadding=3  :paginationSize=6  paginationColor="#dbdbdb" :perPage=1>

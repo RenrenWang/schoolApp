@@ -23,7 +23,7 @@ export default {
 
   methods:{
     getDataMap(){
-     this.$http.get(BASEURL+'/mapInfoAction.action?areaCode=BJ')
+     this.$http.get('http://120.26.85.17:6080/gisapp/mapInfoAction.action?areaCode=BJ')
       .then(data=>{
        data=data.data;
        let buildSiteMap=data.buildSiteMap;

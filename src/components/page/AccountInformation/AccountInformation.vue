@@ -38,6 +38,9 @@
                 <p style="justify-content:center;align-items:center"><span>暂无数据</span></p> 
                  
               </div>
+
+            
+
           </li>
        </ul>
     </main>
@@ -52,14 +55,14 @@ export default {
     return {
      newsList:[],
      tabList:[
-         {name:"流水",isSelect:true,detailType:"ZS"},
-         {name:"缴存",isSelect:false,detailType:"IN"},
+         //{name:"流水",isSelect:true,detailType:"ZS"},
+         {name:"缴存",isSelect:true,detailType:"IN"},
          {name:"使用",isSelect:false,detailType:"USE"},
          {name:"退款",isSelect:false,detailType:""},
          {name:"利息",isSelect:false,detailType:"LX"},
          {name:"增值",isSelect:false,detailType:""}
          ],
-          detailType:'ZS'
+          detailType:'IN'
     }
    
   },
@@ -79,11 +82,14 @@ export default {
           .then((data)=>{
            data=data.data;
            if(this.detailType=='ZS')
-            this.newsList=data.inData;
+            this.newsList=data;
             else
              this.newsList=data.data;  
           })
      },
+
+
+     
      selectTab(number){
      
          this.tabList.map((item,index)=>{

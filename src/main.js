@@ -13,7 +13,7 @@ import axios  from 'axios';
 Vue.prototype.$http = axios;
 Vue.config.productionTip = false
 //正式后台服务器URI
-//global.BASEURL="http://120.26.85.17:6080/gisapp";
+//global.BASEURL="http://120.26.85.17:6080/appsrv";
 //测试后台服务器URI
 global.BASEURL="/appsrv";
 //global.BASEURLLOIN="/zhxz";
