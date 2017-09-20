@@ -7,7 +7,7 @@
         
          <router-link  v-for="(v,index) in newsList " :key="index" :to="{ name: 'principalWorksD', params: { id: v.fundUseId }}" tag="li">      
               <div class="ai-content">
-                    <h3>{{v.infoTitle}}</h3>
+                  
                   
                <p><span>编号：{{v.dealNo}}</span><span>小区名称：{{v.projectName}}</span></p>
               <p><span>使用项目：{{v.fundUseName}}</span><span>预算金额：{{v.useFund}}¥</span></p> 

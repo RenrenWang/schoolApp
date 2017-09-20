@@ -2,13 +2,13 @@
   <div class="noticeD">
          <NavBar leftIcon="icon-fanhui"   fixed="true" title="本金工程详情"   @leftActive="back()"/>
          <main class="main">
-                 <div class="top-noticeD">
+                 <div class="top-noticeD" v-for="(v,index) in  details" :key="index">
                     
-                                <p><span>支用编号：{{details.detailUsefundCod}}</span></p>
-                                <p><span>使用项目：{{details.fundUseName}}</span></p>
-                                <p><span>房屋：{{details.roomInfo}}</span></p>
-                                <p><span>使用金额：{{details.useFund}}</span></p>
-                                <p><span>使用日期：{{details.useDate}}</span></p>
+                                <p><span>支用编号：{{v.detailUsefundCod}}</span></p>
+                                <p><span>使用项目：{{v.fundUseName}}</span></p>
+                                <p><span>房屋：{{v.roomInfo}}</span></p>
+                                <p><span>使用金额：{{v.useFund}}</span></p>
+                                <p><span>使用日期：{{v.useDate}}</span></p>
                            
                      </div>
                          <!-- <h3>{{details.infoTitle}}</h3>
@@ -43,7 +43,7 @@ export default {
       this.$http.get(BASEURL+'/fundInfoAction.action?myUseProjectInfo=&dataType=DET&pinfoId=32&fundUseId='+this.$route.params.id)
           .then((data)=>{
               data=data.data;
-            this.details=data.data[0];
+            this.details=data.data;
              console.log(JSON.stringify(this.details));
               
           })
