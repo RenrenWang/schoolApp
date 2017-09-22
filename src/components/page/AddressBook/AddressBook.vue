@@ -63,7 +63,7 @@ export default {
   },
 
 mounted(){
-      this.$http.get(BASEURL+'/baseDataAction.action?appMenu=&dataType=RECORD&pageno=1')
+      this.$http.get('http://120.26.85.17:6080/gisapp//baseDataAction.action?appMenu=&dataType=RECORD&pageno=1')
   
      .then((data)=>{
      this.list=data.data.data;

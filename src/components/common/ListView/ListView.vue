@@ -133,7 +133,7 @@ export default {
      
    this.isShow=true;
    if(!this.noData){
-           this.$http.get(BASEURL+this.dataUrl+"&pageno="+this.page++)
+           this.$http.get('http://120.26.85.17:6080/gisapp/'+this.dataUrl+"&pageno="+this.page++)
         .then((response)=>{
           console.log(response);
           let data=response.data;

@@ -138,10 +138,10 @@ export default {
     getAllData(){
         let id=this.$route.params.id;
        
-        let base=this.$http.get(BASEURL+'/buildInfoAction.action?postType=BUILDDETAIL&buildingNo='+id);
-        let room=this.$http.get(BASEURL+'/roomInfoAction.action?postType=ROOMSTAT&buildingNo='+id);
-        let use=this.$http.get(BASEURL+'/roomInfoAction.action?postType=ROOMUSE&buildingNo='+id);
-        let goods=this.$http.get(BASEURL+'/roomInfoAction.action?postType=DEVICEUSE&buildingNo='+id);
+        let base=this.$http.get('http://120.26.85.17:6080/gisapp/buildInfoAction.action?postType=BUILDDETAIL&buildingNo='+id);
+        let room=this.$http.get('http://120.26.85.17:6080/gisapp/roomInfoAction.action?postType=ROOMSTAT&buildingNo='+id);
+        let use=this.$http.get('http://120.26.85.17:6080/gisapp/roomInfoAction.action?postType=ROOMUSE&buildingNo='+id);
+        let goods=this.$http.get('http://120.26.85.17:6080/gisapp/roomInfoAction.action?postType=DEVICEUSE&buildingNo='+id);
         this.$http.all([base,room,use,goods])
         .then(this.$http.spread((data1, data2,data3,data4)=> {            
                   this.listviewdata_1=data1.data           

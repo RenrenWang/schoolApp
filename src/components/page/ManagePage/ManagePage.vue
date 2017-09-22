@@ -49,7 +49,7 @@ export default {
   name: 'ManagePage',
   data () {
     return {
-       listUrl:"/buildInfoAction.action?postType=BUILD",
+       listUrl:"http://120.26.85.17:6080/gisapp/buildInfoAction.action?postType=BUILD",
        schoolList:[],
        useList:[],
        typeList:[],
@@ -82,13 +82,13 @@ export default {
         let _selectSchool=this.changeNull("buildArea",school);    
         let _selectUse=this.changeNull("buildUse",use);
         let _selectType=this.changeNull("buildType",type);
-        this.listUrl="/buildInfoAction.action?postType=BUILD"+_selectSchool+_selectUse+_selectType;
+        this.listUrl="http://120.26.85.17:6080/gisapp/buildInfoAction.action?postType=BUILD"+_selectSchool+_selectUse+_selectType;
     },
   selectAll(){
        this.selectSchool=0;
        this.selectUse=0;
        this.selectType=0;
-       this.listUrl="/buildInfoAction.action?postType=BUILD";
+       this.listUrl="http://120.26.85.17:6080/gisapp/buildInfoAction.action?postType=BUILD";
    },
    schoolActive(){       
       this.changeUrl(this.selectSchool,this.selectUse,this.selectType);
@@ -100,9 +100,9 @@ export default {
           this.changeUrl(  this.selectSchool,  this.selectUse,  this.selectType);
    },
       getAll(){
-        let getSchool=this.$http.get(BASEURL+'/baseDataAction.action?dataType=CELLAREA');
-        let getUse=this.$http.get(BASEURL+'/baseDataAction.action?dataType=BUILDUSE');
-        let getType=this.$http.get(BASEURL+'/baseDataAction.action?dataType=BUILDTYPE');
+        let getSchool=this.$http.get('http://120.26.85.17:6080/gisapp/baseDataAction.action?dataType=CELLAREA');
+        let getUse=this.$http.get('http://120.26.85.17:6080/gisapp/baseDataAction.action?dataType=BUILDUSE');
+        let getType=this.$http.get('http://120.26.85.17:6080/gisapp/baseDataAction.action?dataType=BUILDTYPE');
         this.$http.all([getSchool, getUse,getType])
         .then(this.$http.spread((data1, data2,data3)=> {
               data1=data1.data;
