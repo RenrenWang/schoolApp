@@ -1,6 +1,6 @@
 # school
 
-> A Vue.js project
+> 维修基金
 
 ## Build Setup
 
