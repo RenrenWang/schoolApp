@@ -13,6 +13,7 @@ import Register from '../components/page/Register/Register.vue'
 
 import About from '../components/page/About/About.vue'
 import Instr from '../components/page/About/Instr.vue'
+import Cusinfo from '../components/page/About/Cusinfo.vue'
 import AddressBook from '../components/page/AddressBook/AddressBook.vue'
 import Find from '../components/page/Find/Find.vue'
 import Politics from '../components/page/Politics/Politics.vue'
@@ -38,6 +39,7 @@ import IMagementPush from '../components/page/IncidentManagement/IncidentManagem
 import IMagementQs from '../components/page/IncidentManagement/IncidentManagementQs.vue'
 import IMagementHandle from '../components/page/IncidentManagement/IncidentManagementHandle.vue'
 import IMagementHandleD from '../components/page/IncidentManagement/IncidentManagementHandleD.vue'
+import Share from '../components/page/Share/Share.vue'
 
 import MyHouse from '../components/page/MyHouse/MyHouse.vue'  //我的房屋
 
@@ -60,7 +62,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    
+
      {
       path: '/',
       // name: 'layout',
@@ -118,7 +120,7 @@ export default new Router({
       name: 'register',
       component:Register
     },
-    
+
     {
       path:'/about',
       name: 'about',
@@ -128,6 +130,11 @@ export default new Router({
       path:'/instr',
       name: 'instr',
       component: Instr
+    },
+     {
+      path:'/cusinfo',
+      name: 'cusinfo',
+      component: Cusinfo
     },
     {
       path:'/politics',
@@ -139,7 +146,7 @@ export default new Router({
       name: 'politicsD',
       component: PoliticsD
     },
-   
+
      {
       path:'/managePage',
       name: 'managePage',
@@ -165,7 +172,7 @@ export default new Router({
       name: 'toolManagePage',
       component:ToolManagePage
     },
-   
+
     {
       path:'/rootManageD/:id',
       name: 'rootManageD',
@@ -189,7 +196,6 @@ export default new Router({
     },
 
 
-    
     {
       path:'/selectPersonnel',
       name: 'selectPersonnel',
@@ -200,42 +206,42 @@ export default new Router({
       name: 'selectPersonnelD',
       component:SelectPersonnelD
     },
-  
+
     {
       path:'/table/:id',
       name: 'table',
       component: Table
     },
-  
+
     {
       path:'/scan',
       name: 'scan',
       component: Scan
     }
-    
+
     ,
-  
+
     {
       path:'/imagement',
       name: 'imagement',
       component: IMagement
     }
-    
+
     ,
-  
+
     {
       path:'/imagementPush',
       name: 'imagementPush',
       component: IMagementPush
     },
-    
-  
+
+
     {
       path:'/imagementQs',
       name: 'imagementQs',
       component: IMagementQs
     },
-    
+
      {
       path:'/imagementHandle',
       name: 'imagementHandle',
@@ -245,6 +251,7 @@ export default new Router({
       path:'/imagementHandleD',
       name: 'imagementHandleD',
       component: IMagementHandleD
+<<<<<<< .mine
     },{
       path:'/myHouse',
       name: 'myHouse',
@@ -287,5 +294,17 @@ export default new Router({
       component: ServiceGuideD
     },
     
+||||||| .r4449
+    }
+   
+=======
+    },
+     {
+      path:'/Share',
+      name: 'Share',
+      component: Share
+    }
+
+>>>>>>> .r4524
   ]
 })

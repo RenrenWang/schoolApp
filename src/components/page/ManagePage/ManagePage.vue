@@ -7,17 +7,17 @@
                  <a href="javascript:void(0);" @click="selectAll" :class="['all-btn',(selectSchool==0&&selectUse==0&&selectType==0)?'active':'']">全部</a>
                  
                 <select  v-model="selectSchool" @change="schoolActive">
-                    <option value="0">校区</option>
+                    <option value="0">选校区</option>
                     <option :value="v.id"  v-for="v in schoolList">{{v.codeValue}}</option>
                 </select>
                 
                 <select  v-model="selectUse"  @change="useActive" >
-                     <option value ="0">类别</option>
+                     <option value ="0">选类别</option>
                      <option :value ="v.id" v-for="v in useList">{{v.codeValue}}</option>
                 </select>
                 
                 <select  v-model="selectType"   @change="typeActive">
-                    <option value ="0">用途</option>
+                    <option value ="0">选用途</option>
                    <option :value ="v.id" v-for="v in typeList">{{v.codeValue}}</option>
                 </select>
                

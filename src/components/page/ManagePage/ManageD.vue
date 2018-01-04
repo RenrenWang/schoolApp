@@ -19,20 +19,20 @@
      </ul>
      <div class="tab-bar-content" v-show="Tab_1==isTab">
           <div class="listview listview-3">
-                <div class="top-section">
-                      <img :src="Changimgs(listviewdata_1.buildingImguri)" >
+                <div class="top-section" style="text-align:center">
+                      <img :src="Changimgs(listviewdata_1.buildingImguri)" style="width: 94%;">
                 </div>
                 <div class="center-section">
-                    <p><span>楼幢编号：{{listviewdata_1.buildingCode}}</span></p>
-                    <p><span>楼幢名称：{{listviewdata_1.buildingName}}&nbsp;{{listviewdata_1.buildingPname}}</span></p>
-                    <p><span>层数：{{listviewdata_1.buildingFloor}}</span><span>房间数：{{listviewdata_1.roomNums}}(间)</span></p>
-                    <p><span>类型: {{listviewdata_1.buildingTypename}}</span></p>
-                    <p><span>用途： {{listviewdata_1.buildingUsename}}</span></p>
-                    <p><span>建筑面积： {{listviewdata_1.buildingArea}}&nbsp;M<sup>2</sup></span></p>
-                    <p><span>使用面积： {{listviewdata_1.propertyArea}}&nbsp;M<sup>2</sup></span></p>
-                    <p><span>管理部门：{{listviewdata_1.college}}</span></p>
-                    <p><span>建筑年份：{{listviewdata_1.buildingYear}}</span></p>
-                    <p><span>房屋位置：{{listviewdata_1.address}}</span></p>
+                    <p class="p-text_h22"><span>楼幢编号：{{listviewdata_1.buildingCode}}</span></p>
+                    <p class="p-text_h22"><span>楼幢名称：{{listviewdata_1.buildingName}}&nbsp;{{listviewdata_1.buildingPname}}</span></p>
+                    <p class="p-text_h22"><span>楼幢层数：{{listviewdata_1.buildingFloor}}&nbsp;(层)</span><span>房间数：{{listviewdata_1.roomNums}}&nbsp;(间)</span></p>
+                    <p class="p-text_h22"><span>楼幢类型： {{listviewdata_1.buildingTypename}}</span></p>
+                    <p class="p-text_h22"><span>楼幢用途： {{listviewdata_1.buildingUsename}}</span></p>
+                    <p class="p-text_h22"><span>建筑面积： {{NumberFormat(listviewdata_1.buildingArea)}}&nbsp;m<sup>2</sup></span></p>
+                    <p class="p-text_h22"><span>使用面积： {{NumberFormat(listviewdata_1.propertyArea)}}&nbsp;m<sup>2</sup></span></p>
+                    <p class="p-text_h22"><span>管理部门：{{listviewdata_1.collFullname}}</span></p>
+                    <p class="p-text_h22"><span>建筑年份：{{listviewdata_1.buildingYear}}</span></p>
+                    <p class="p-text_h22"><span>房屋位置：{{listviewdata_1.address}}</span></p>
                 </div>
                 
                 <div class="bottom-section">
@@ -52,12 +52,13 @@
           <div class="listview listview-3">
         
              <div class="center-section">
-                    <p><span>房间总数：{{listviewdata_2.roomNums}}间</span></p>
-                    <p><span>状态使用：{{listviewdata_2.roomStatusused}}间</span><span>空闲：{{listviewdata_2.roomStatusidel}}间</span><span>维修：{{listviewdata_2.roomStatusfixs}}间</span></p>
-                    <p><span>层数：{{listviewdata_2.buildingFloor}}</span></p>
+                    <p><span>房间总数：{{listviewdata_2.roomNums}}&nbsp;间</span></p>
+                    <p><span>使用状态：</span></p>
+                    <p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用：{{listviewdata_2.roomStatusused}}&nbsp;间</span><span>空闲：{{listviewdata_2.roomStatusidel}}间</span><span>维修：{{listviewdata_2.roomStatusfixs}}&nbsp;间</span></p>
+                    <p><span>楼幢层数：{{listviewdata_2.buildingFloor}}&nbsp;层</span></p>
                   
-                    <p style="line-height: 30px; height: 30px;"><span>房间建筑总面积：{{listviewdata_2.roomAreaSumm}}&nbsp;M<sup>2</sup></span></p>
-                    <p><span>房间使用总面积：{{listviewdata_2.roomUsedareaSumm}}&nbsp;M<sup>2</sup></span></p>
+                    <p style="line-height: 30px; height: 30px;"><span>房间建筑总面积：{{listviewdata_2.roomAreaSumm}}&nbsp;m<sup>2</sup></span></p>
+                    <p><span>房间使用总面积：{{listviewdata_2.roomUsedareaSumm}}&nbsp;m<sup>2</sup></span></p>
                   
                 <p style="background:#fff;justify-content:flex-end"> <router-link :to="{ name:'table',params:{id:this.$route.params.id}}" class="useColor" style="font-size:16px;">楼盘表</router-link></p>
               </div>
@@ -67,17 +68,17 @@
       <div class="tab-bar-content" v-show="Tab_3==isTab">
  
           <div class="listview listview-3" v-if="listviewdata_3.msg?false:true">
-                <div class="group-top"><span>学院：{{listviewdata_3.collCount}}个</span><span>使用人数：{{listviewdata_3.collUseSumm}}人</span></div>
+                <div class="group-top"><span>学院：{{listviewdata_3.collCount}}&nbsp;个</span><span>使用人数：{{listviewdata_3.collUseSumm}}&nbsp;人</span></div>
                 <div class="group-item" v-for="v in listviewdata_3.data">
-                     <div class="group-item-title"><span>{{v.deptName}}({{v.deptCount}})</span><span class="iconfont icon-fangxiang"></span></div>
+                     <div class="group-item-title"><span>{{v.deptName}}&nbsp;({{v.deptCount}})</span><span class="iconfont icon-fangxiang"></span></div>
                      <ul>
                          <li class="group-item-sub" v-for="n in v.perData">
                              <a href="">
-                             			<img :src="Changimgs(n.personPhoto)" >                                 
+                             			<img :src="Changimgs(n.personPhoto)" style="height:62px; width: 62px;" >                                 
                                   <div class="group-item-sub-text">
-                                       <p><span>姓名：{{n.personName}}</span><span>工号：{{n.personBh}}</span></p>                                       
-                                       <p><span>职称：{{n.dutyName}}</span><span>职位：{{n.postName}}</span></p>
-                                       <p><span>科室：{{n.deptName}}</span><span>状态：{{n.useStatusname}}</span></p>
+                                       <p class="p-text_h22"><span>姓名：{{n.personName}}</span><span>工号：{{n.personBh}}</span></p>                                       
+                                       <p class="p-text_h22"><span>职称：{{n.dutyName}}</span><span>职位：{{n.postName}}</span></p>
+                                       <p class="p-text_h22"><span>科室：{{n.deptName}}</span><span>状态：{{n.useStatusname}}</span></p>
                                   </div>
                              </a>
                         </li>
@@ -89,17 +90,17 @@
      </div>
        <div class="tab-bar-content" v-show="Tab_4==isTab">
            <div class="listview listview-3" v-if="listviewdata_4.msg?false:true">
-                <div class="group-top"><span>学院：{{listviewdata_4.collCount}}个</span><span>使用人数：{{listviewdata_3.collUseSumm}}个</span></div>
+                <div class="group-top"><span>学院：{{listviewdata_4.collCount}}&nbsp;个</span><span>使用人数：{{listviewdata_3.collUseSumm}}&nbsp;个</span></div>
                 <div class="group-item" v-for="v in listviewdata_4.data">
-                     <div class="group-item-title"><span>{{v.deptName}}({{v.deptCount}})</span><span class="iconfont icon-fangxiang"></span></div>
+                     <div class="group-item-title"><span>{{v.deptName}}&nbsp;({{v.deptCount}})</span><span class="iconfont icon-fangxiang"></span></div>
                      <ul>
                          <li class="group-item-sub" v-for="n in v.devData">
                              <a href="">
-                             		  <img :src="Changimgs(n.sburi)" >                                  
+                             		  <img :src="Changimgs(n.sburi)" style="height:62px; width: 62px;" >                                  
                                   <div class="group-item-sub-text">
-                                       <p><span>名称：{{n.yqmc}}</span><span>编号：{{n.sbBh}}</span></p>
-                                       <p><span>位置：{{n.sbBuildingName}}</span>&nbsp;<span>层：{{n.sbBuildingLayer}}</span>&nbsp;<span>房间：{{n.sbRoomName}}</span></p>
-                                        <p><span>使用时间：{{n.sbAssignDate}}</span><span>类型：{{n.sbTypename}}</span></p>
+                                       <p class="p-text_h22"><span>名称：{{n.yqmc}}</span><span>编号：{{n.sbBh}}</span></p>
+                                       <p class="p-text_h22"><span>位置：{{n.sbBuildingName}}</span>&nbsp;<span>层：{{n.sbBuildingLayer}}</span>&nbsp;<span>房间：{{n.sbRoomName}}</span></p>
+                                        <p class="p-text_h22"><span>使用时间：{{n.sbAssignDate}}</span><span>类型：{{n.sbTypename}}</span></p>
                                   </div>
                              </a>
                         </li>
@@ -166,7 +167,25 @@ export default {
    },
 	 Changimgs(url){
           return BASEURL+url;
-    }
+   },
+   
+   NumberFormat(val){
+	    	var fixedVal = parseFloat(val);  
+	    	if (isNaN(fixedVal)) {
+	    		return;      
+	    	}        
+	    	fixedVal = Math.round(val*100)/100;
+	    	var vars = fixedVal.toString(); 
+	    	var rs = vars.indexOf('.');
+	    	if (rs < 0) { 
+	    		rs = vars.length; 
+	    		vars += '.'; 
+	    	}        
+	    	while (vars.length <= rs + 2) {          
+	    		vars += '0';       
+	    	}        
+	    	return vars;
+	    }
 
   },
   components:{

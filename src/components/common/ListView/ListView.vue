@@ -8,11 +8,11 @@
                                 <!--<div class="m-top">
                                       <h3>楼宇名称{{v}}</h3>                                     
                                 </diV>-->
-                                <p><span class="h3">{{v.buildingName}}&nbsp;{{v.buildingPname}}</span><span>{{v.buildingCode}}</span></p>
-                                <p><span>楼层：{{v.buildingFloor}}(层)</span><span>房间数：{{v.roomNums}}(间)</span></p>
-                                <p><span>建筑/使用面积：{{v.buildingArea}}m<sup>2</sup></span><span>{{v.propertyArea}}m<sup>2</sup></span></p>
-                                <p><span>用途：{{v.buildingUsename}}</span><span>类型：{{v.buildingTypename}}</span></p>
-                                <p><span>管理部门：{{v.college}}</span></p>
+                                <p class="p-text_h20"><span class="h3">{{v.buildingName}}&nbsp;{{v.buildingPname}}</span><span>{{v.buildingCode}}</span></p>
+                                <p class="p-text_h20"><span>楼层：{{v.buildingFloor}}(层)</span><span>房间数：{{v.roomNums}}(间)</span></p>
+                                <p class="p-text_h20"><span>建筑/使用面积：{{NumberFormat(v.buildingArea)}}</span><span>{{NumberFormat(v.propertyArea)}}</span></p>                               
+                                <p class="p-text_h20"><span>用途：{{v.buildingSmpusename}}</span><span>类型：{{v.buildingTypename}}</span></p>
+                                <p class="p-text_h20"><span>管理部门：{{v.collShortname}}</span></p>
                         
                        </div>
                  </router-link>
@@ -22,11 +22,11 @@
                  <router-link  :to="{ name: 'rootManageD', params: { id: v.roomNo }}"  v-for="v in list"  key="v.roomNo">
                        <img :src="Changimgs(v.roomImguri)" />
                        <div class="manage-list-text">  
-                                <p><span class="h3">房间:{{v.roomName}}</span><span>楼幢:{{v.buildingName}}&nbsp;{{v.roomFloor}}层</span></p>
-                                <p><span>用途:{{v.roomUsename}}</span><span>类别:{{v.roomTypename}}</span></p>
-                                <p><span>部门:{{v.collegeUsename}}</span><span>科室:{{v.roomOfficename}}</span></p>
-                                <p><span>建筑/使用面积：{{v.roomArea}}㎡</span><span>{{v.roomUsedArea}}㎡</span></p>                               
-                                 <p><span>编码:{{v.roomCode}}</span><span>状态:{{v.roomStatusname}}</span></p>                        
+                                <p class="p-text_h20"><span class="h3">房间:{{v.roomName}}</span><span>楼幢:{{v.buildingName}}&nbsp;{{v.roomFloor}}层</span></p>
+                                <p class="p-text_h20"><span>用途:{{v.roomUsename}}</span><span>类别:{{v.roomTypename}}</span></p>
+                                <p class="p-text_h20"><span>部门:{{v.collegeUsename}}</span><span>科室:{{v.roomOfficename}}</span></p>
+                                <p class="p-text_h20"><span>建筑/使用面积:{{NumberFormat(v.roomArea)}}㎡</span><span>{{NumberFormat(v.roomUsedArea)}}㎡</span></p>                               
+                                <p class="p-text_h20"><span>编码:{{v.roomCode}}</span><span>状态:{{v.roomStatusname}}</span></p>                        
                        </div>
                  </router-link>
           </div>   
@@ -88,6 +88,7 @@
 
 <script>
 import   Loading  from '../Loading/Loading'
+
 export default {
   name:'list-view',
   props:["dataUrl","ItemShowType","top"],
@@ -185,8 +186,26 @@ export default {
     
     Changimgs(url){
           return BASEURL+url;
-    }   
+    },
     
+   NumberFormat(val){
+	    	var fixedVal = parseFloat(val);  
+	    	if (isNaN(fixedVal)) {
+	    		return;      
+	    	}        
+	    	fixedVal = Math.round(val*100)/100;
+	    	var vars = fixedVal.toString(); 
+	    	var rs = vars.indexOf('.');
+	    	if (rs < 0) { 
+	    		rs = vars.length; 
+	    		vars += '.'; 
+	    	}        
+	    	while (vars.length <= rs + 2) {          
+	    		vars += '0';       
+	    	}        
+	    	return vars;
+	    }
+        
   },
   
   components:{
@@ -198,6 +217,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import "../../../assets/style/base.scss";
+
 #list-view{
    overflow:hidden;
   overflow-y:scroll;

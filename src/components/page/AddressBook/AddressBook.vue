@@ -8,10 +8,11 @@
                     <ul class="abook-list">
                         <li v-for="sv in v.userData">
                             <a :href="'tel:'+personMobile">
-                                <img :src="this.BASEURL+sv.photoUri" class="avatar"/>
+                              <img :src="this.BASEURL+sv.photoUri" class="avatar" style="width: 80px; height: 80px;"/>
                               <div class="text">
-                                   <p><span>姓名：{{sv.realName}}</span><span>工号：{{sv.loginName}}</span></p>
-                                  <p><span>学院：{{sv.officeName}}</span><span>联系方式：{{sv.personMobile}}</span></p>
+                                   <p class="p-text_h20"><span>姓名：{{sv.realName}}</span><span>工号：{{sv.loginName}}</span></p>
+                                  <p class="p-text_h20"><span>学院：{{sv.officeName}}</span></p>
+                                  <p class="p-text_h20"><span>联系方式：{{sv.personMobile}}</span></p>
                               </div>
                             </a>
                         </li>
@@ -88,7 +89,8 @@ mounted(){
         height:rem(60px);
         font-size:16px;
         line-height:rem(60px);
-        padding-left:rem(40px);
+        padding-left:rem(15px);
+         background:#fff;
     }
     .abook-list{
   
@@ -103,10 +105,11 @@ mounted(){
         display:flex;
         align-items:center;
         flex-direction:row;
+       
         .avatar{
-            height:rem(70px);
-            width:rem(70px);
-            margin-right:rem(10px);
+            height:rem(100px);
+            width:rem(100px);
+            margin-right:rem(30px);
         }
         span{
                 font-size:14px;
@@ -117,6 +120,7 @@ mounted(){
                .text{
                   display:flex;
                   flex-direction:column; 
+                  
                }
         p{
                margin:rem(10px) 0;
